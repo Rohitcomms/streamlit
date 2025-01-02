@@ -7,7 +7,6 @@ url = st.text_input("Enter YouTube URL:")
 
 if st.button("Get Summary"):
     if url:
-        # Corrected the URL to avoid the extra 'http://'
         response = requests.post("https://flask-backend-5.onrender.com", json={"url": url})
         if response.status_code == 200:
             st.subheader("Summary:")
