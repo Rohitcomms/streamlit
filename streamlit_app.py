@@ -7,7 +7,7 @@ url = st.text_input("Enter YouTube URL:")
 
 if st.button("Get Summary"):
     if url:
-        response = requests.post("http://127.0.0.1:5000/process", json={"url": url})
+        response = requests.post("https://dashboard.render.com/web/srv-ctrke33tq21c738tec8g/deploys/dep-ctrke3btq21c738tecb0", json={"url": url})
         if response.status_code == 200:
             st.subheader("Summary:")
             st.write(response.json()["summary"])
