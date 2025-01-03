@@ -8,7 +8,7 @@ url = st.text_input("Enter YouTube URL:")
 
 if st.button("Get Summary"):
     if url:
-        backend_url = "https://flsk-12.onrender.com/summarize"  # Replace with your actual Render URL
+        backend_url = "https://flsk-11.onrender.com/summarize"  # Replace with your actual Render URL
 
         try:
             # Send POST request to Flask backend
@@ -19,6 +19,7 @@ if st.button("Get Summary"):
                 st.subheader("Summary:")
                 st.write(response.json()["summary"])
             else:
+                # Display the error from the backend (e.g., subtitles disabled)
                 st.error(f"Error from backend: {response.json().get('error', 'Unknown error')}")
         
         except requests.exceptions.RequestException as e:
@@ -26,4 +27,3 @@ if st.button("Get Summary"):
             st.error(f"Network error: {e}")
     else:
         st.error("Please enter a valid YouTube URL.")
-
