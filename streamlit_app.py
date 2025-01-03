@@ -8,7 +8,7 @@ url = st.text_input("Enter YouTube URL:")
 
 if st.button("Get Summary"):
     if url:
-        backend_url = "https://flsk-11.onrender.com/summarize"  # Replace with your actual Render URL
+        backend_url = "https://flsk-13.onrender.com/summarize"  # Replace with your actual Render URL
 
         try:
             # Send POST request to Flask backend
