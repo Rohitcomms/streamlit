@@ -7,20 +7,12 @@ url = st.text_input("Enter YouTube URL:")
 
 if st.button("Get Summary"):
     if url:
-        response = requests.post("https://flask-backend-5.onrender.com", json={"url": url})
-        
-        try:
-            response.raise_for_status()
-            response_json = response.json()
-            
-            if response.status_code == 200:
-                st.subheader("Summary:")
-                st.write(response_json.get("summary", "No summary available"))
-            else:
-                st.error(response_json.get("error", "An error occurred."))
-        except requests.exceptions.RequestException as e:
-            st.error(f"Request error: {e}")
-        except ValueError:
-            st.error("Error: Unable to parse response as JSON.")
+        response = requests.post("http://127.0.0.1:5000/process", json={"url": url})
+        if response.status_code == 200:
+            st.subheader("Summary:")
+            st.write(response.json()["summary"])
+        else:
+            st.error(response.json().get("error", "An error occurred."))
     else:
         st.error("Please enter a valid URL.")
+
