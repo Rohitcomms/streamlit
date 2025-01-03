@@ -7,7 +7,7 @@ url = st.text_input("Enter YouTube URL:")
 
 if st.button("Get Summary"):
     if url:
-        backend_url = "https://flsk-9.onrender.com/summarize"
+        backend_url = "https://flsk-11.onrender.com/summarize"
 
         try:
             
